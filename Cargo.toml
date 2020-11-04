@@ -1,0 +1,32 @@
+[package]
+name = "serialize-tracing"
+version = "0.0.0"
+authors = ["zhongzc <zhongzc_arch@outlook.com>"]
+edition = "2018"
+build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = ["protobuf-codec"]
+protobuf-codec = ["protobuf-build/grpcio-protobuf-codec"]
+
+[dependencies]
+protobuf = "=2.8.0"
+flatbuffers = "0.6.1"
+rand = "*"
+
+[dev-dependencies]
+criterion = "0.3"
+
+[build-dependencies]
+protobuf-build = { version = "0.11", default-features = false }
+flatc-rust = "*"
+
+[patch.crates-io]
+protobuf-codegen = { git = "https://github.com/pingcap/rust-protobuf", rev="b67d432c1b74350b38a5d96ddf885ac6c3ff46f5" }
+protobuf = { git = "https://github.com/pingcap/rust-protobuf", rev="b67d432c1b74350b38a5d96ddf885ac6c3ff46f5" }
+
+[[bench]]
+name = "serialization"
+harness = false

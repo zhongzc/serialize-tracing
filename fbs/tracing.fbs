@@ -1,0 +1,33 @@
+table Property {
+    key: [ubyte];
+    value: [ubyte];
+}
+
+table Span1 {
+    start_time_ns: uint64 = 0;
+    duration_ns: uint64 = 0;
+    id: uint64 = 0;
+    parent_id: uint64 = 0;
+    event: [ubyte];
+    properties: [Property];
+}
+
+table Spans1 {
+    spans: [Span1];
+}
+
+table Span2 {
+    start_time_ns: uint64 = 0;
+    duration_ns: uint64 = 0;
+    id: uint64 = 0;
+    parent_id: uint64 = 0;
+    event: uint64 = 0;
+    properties: [Property];
+}
+
+table Spans2 {
+    spans: [Span2];
+}
+
+root_type Spans1;
+root_type Spans2;
