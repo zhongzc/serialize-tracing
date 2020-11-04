@@ -2,8 +2,9 @@ syntax = "proto3";
 package tracing;
 
 message Property {
-    string key = 1;
-    string value = 2;
+    uint64 id = 1;
+    string key = 2;
+    string value = 3;
 }
 
 message Span1 {
@@ -12,11 +13,11 @@ message Span1 {
     uint64 id = 3;
     uint64 parent_id = 4;
     string event = 5;
-    repeated Property properties = 6;
 }
 
 message Spans1 {
     repeated Span1 spans = 1;
+    repeated Property properties = 3;
 }
 
 message Span2 {
@@ -25,9 +26,9 @@ message Span2 {
     uint64 id = 3;
     uint64 parent_id = 4;
     uint64 event = 5;
-    repeated Property properties = 6;
 }
 
 message Spans2 {
     repeated Span2 spans = 1;
+    repeated Property properties = 2;
 }

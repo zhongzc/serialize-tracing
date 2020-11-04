@@ -52,11 +52,7 @@ fn rand_property() -> Property {
 fn rand_properties() -> Vec<Property> {
     let mut rng = rand::thread_rng();
     if rng.gen_bool(1.0 / 10.0) {
-        if rng.gen_bool(1.0 / 4.0) {
-            vec![rand_property(), rand_property()]
-        } else {
-            vec![rand_property()]
-        }
+        vec![rand_property()]
     } else {
         vec![]
     }

@@ -1,32 +1,38 @@
 table Property {
+    id: uint64 = 0;
     key: [ubyte];
     value: [ubyte];
 }
 
-table Span1 {
+struct Span1 {
     start_time_ns: uint64 = 0;
     duration_ns: uint64 = 0;
     id: uint64 = 0;
     parent_id: uint64 = 0;
-    event: [ubyte];
-    properties: [Property];
+}
+
+table EventName {
+    id: uint64 = 0;
+    event_name: [ubyte];
 }
 
 table Spans1 {
     spans: [Span1];
+    event_names: [EventName];
+    properties: [Property];
 }
 
-table Span2 {
+struct Span2 {
     start_time_ns: uint64 = 0;
     duration_ns: uint64 = 0;
     id: uint64 = 0;
     parent_id: uint64 = 0;
     event: uint64 = 0;
-    properties: [Property];
 }
 
 table Spans2 {
     spans: [Span2];
+    properties: [Property];
 }
 
 root_type Spans1;
