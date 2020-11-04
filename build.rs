@@ -9,10 +9,7 @@ fn main() {
     println!("cargo:rerun-if-changed=fbs/tracing.fbs");
     flatc_rust::run(flatc_rust::Args {
         inputs: &[Path::new("fbs/tracing.fbs")],
-        out_dir: Path::new(&format!(
-            "{}/flatbuffers",
-            std::env::var("OUT_DIR").expect("No OUT_DIR defined")
-        )),
+        out_dir: Path::new("target/flatbuffers"),
         ..Default::default()
     })
     .expect("flatc");

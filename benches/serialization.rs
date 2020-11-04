@@ -39,7 +39,7 @@ fn serialization(c: &mut Criterion) {
 
             for s in &[SerType::Flatbuffers, SerType::Protobuf] {
                 for e in &[EventType::Num, EventType::Str] {
-                    for c in &[100, 1000] {
+                    for c in &[10, 100, 1000] {
                         inputs.push((s, e, c));
                     }
                 }
